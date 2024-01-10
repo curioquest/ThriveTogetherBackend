@@ -1,0 +1,2 @@
+# ThriveTogetherBackend
+Thrive Together API
