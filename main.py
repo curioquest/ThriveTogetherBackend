@@ -6,11 +6,11 @@ from dotenv import load_dotenv
 
 
 from authenticator import authenticator
-from messages.routers import messages
-from accounts.routers import accounts
-from peers.routers import peers
-from matching.routers import matching
-from tags.routers import tags
+from api.messages.routers import messages
+from api.accounts.routers import accounts
+from api.peers.routers import peers
+from api.matching.routers import matching
+from api.tags.routers import tags
 from database import initialize_database, close_engine
 
 
