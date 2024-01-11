@@ -22,22 +22,22 @@ app = FastAPI()
 
 # initialize_database()
 
+origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(authenticator.router)
 app.include_router(messages.messages_router)
 app.include_router(accounts.router)
 app.include_router(peers.router)
 app.include_router(matching.router)
 app.include_router(tags.router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "https://hammerhead-app-2-du6ba.ondigitalocean.app"
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 @app.get("/")
