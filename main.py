@@ -33,7 +33,7 @@ app.add_middleware(
     CORSMiddleware,
     # allow_origins=["*"],
     allow_origins=[
-        "https://oyster-app-cxtg3.ondigitalocean.app",
+        "https://hammerhead-app-2-du6ba.ondigitalocean.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
