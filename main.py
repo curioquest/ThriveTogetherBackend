@@ -32,7 +32,7 @@ app.include_router(tags.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://hammerhead-app-2-du6ba.ondigitalocean.app",
+        "https://hammerhead-app-2-du6ba.ondigitalocean.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
