@@ -1,5 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 # SessionLocal
 # import os
 from dotenv import load_dotenv
@@ -16,6 +17,13 @@ from database import initialize_database, close_engine
 
 load_dotenv()
 
+
+class LoggerMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        print(f"Incoming request: {request.method} {request.url.path}")
+        return await call_next(request)
+
+
 app = FastAPI()
 
 # db_engine = create_database_engine()
@@ -26,6 +34,7 @@ origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app",
            "https://hammerhead-app-2-du6ba.ondigitalocean.app:443",]
 
 app.add_middleware(
+    LoggerMiddleware,
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
