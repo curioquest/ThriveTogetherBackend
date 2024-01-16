@@ -22,7 +22,7 @@ app = FastAPI()
 
 # initialize_database()
 
-origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app"]
+origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app:443"]
 
 app.add_middleware(
     CORSMiddleware,
