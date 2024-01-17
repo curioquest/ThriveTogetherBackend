@@ -4,7 +4,7 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
-from api.accounts.alchemyModels import Accounts
+from api.accounts.alchemyModels import Users
 from api.messages.alchemyModels import Messages
 from api.peers.alchemyModels import Peers
 from api.tags.alchemyModels import Tags

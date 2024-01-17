@@ -4,8 +4,8 @@ from base import Base
 # Assuming Base is your declarative base instance in SQLAlchemy
 
 
-class Accounts(Base):
-    __tablename__ = 'accounts'
+class Users(Base):
+    __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True, nullable=False)
     username = Column(String(50), unique=True, nullable=False)
