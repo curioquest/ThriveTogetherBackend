@@ -15,8 +15,8 @@ class UserTags(Base):
     __tablename__ = 'user_tags'
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    user_id = Column(Integer, ForeignKey('accounts.id'), nullable=False)
     tag_id = Column(Integer, ForeignKey('tags.id'), nullable=False)
 
     tag = relationship("Tags", backref="users_tags")
-    user = relationship("Users", backref="users_tags")
+    user = relationship("Accounts", backref="users_tags")

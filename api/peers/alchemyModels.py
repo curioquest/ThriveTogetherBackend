@@ -21,8 +21,8 @@ class Peers(Base):
     __tablename__ = 'peers'
 
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'))
-    peer_id = Column(Integer, ForeignKey('users.id'))
+    user_id = Column(Integer, ForeignKey('accounts.id'))
+    peer_id = Column(Integer, ForeignKey('accounts.id'))
     # Assuming both peer and user are from the same table 'users'
     peer_name = Column(String)
     profile_link = Column(String)
@@ -31,8 +31,8 @@ class Peers(Base):
     status = Column(Integer)
 
     # Relationships with User model for user and peer
-    user = relationship("User", foreign_keys=[user_id])
-    peer = relationship("User", foreign_keys=[peer_id])
+    user = relationship("Accounts", foreign_keys=[user_id])
+    peer = relationship("Accounts", foreign_keys=[peer_id])
 
 
 # # Define the SQLAlchemy model corresponding to PeerConnections

@@ -10,9 +10,9 @@ class Messages(Base):
     __tablename__ = 'messages'
 
     id = Column(Integer, primary_key=True)
-    recipient = Column(Integer, ForeignKey('users.id'))
+    recipient = Column(Integer, ForeignKey('accounts.id'))
 
-    sender = Column(Integer, ForeignKey('users.id'))
+    sender = Column(Integer, ForeignKey('accounts.id'))
     content = Column(String)
     date = Column(DateTime, default=datetime.utcnow)
     is_read = Column(Boolean, default=False)
@@ -22,5 +22,5 @@ class Messages(Base):
     user_id = Column(Integer)
 
     # Relationships with User model for recipient and sender
-    recipient_user = relationship("Users", foreign_keys=[recipient])
-    sender_user = relationship("Users", foreign_keys=[sender])
+    recipient_user = relationship("Accounts", foreign_keys=[recipient])
+    sender_user = relationship("Accounts", foreign_keys=[sender])
