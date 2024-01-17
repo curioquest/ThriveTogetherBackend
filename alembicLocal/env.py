@@ -9,6 +9,12 @@ sys.path = ['', '..'] + sys.path[1:]
 import configobj
 
 from base import Base
+from api.accounts.alchemyModels import Users
+from api.matching.alchemyModels import Matches
+from api.peers.alchemyModels import Peers
+from api.messages.alchemyModels import Messages
+from api.tags.alchemyModels import Tags
+
 
 
 
