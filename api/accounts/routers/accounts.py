@@ -8,6 +8,7 @@ from fastapi import (
 )
 from jwtdown_fastapi.authentication import Token
 from authenticator import authenticator
+from fastapi.responses import JSONResponse
 
 from pydantic import BaseModel
 
@@ -107,3 +108,14 @@ async def get_token(
             "type": "Bearer",
             "account": account,
         }
+    else:
+        return JSONResponse(content={
+            "message": "Account or cookie not found",
+            "request": {
+                "method": request.method,
+                "url": str(request.url),
+                "headers": dict(request.headers),
+                "cookies": request.cookies,
+            },
+            "account": account,
+        })
