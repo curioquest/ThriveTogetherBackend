@@ -30,21 +30,21 @@ app = FastAPI()
 
 # initialize_database()
 
-origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app",
-           "https://hammerhead-app-2-du6ba.ondigitalocean.app:443",
-           "https://hammerhead-app-2-du6ba.ondigitalocean.app/",
-           "http://localhost:3000",]
+# origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app",
+#            "https://hammerhead-app-2-du6ba.ondigitalocean.app:443",
+#            "https://hammerhead-app-2-du6ba.ondigitalocean.app/",
+#            "http://localhost:3000",]
 
 app.add_middleware(LoggerMiddleware)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    expose_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+#     expose_headers=["*"],
+# )
 
 app.include_router(authenticator.router)
 app.include_router(messages.messages_router)
