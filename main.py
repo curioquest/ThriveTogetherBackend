@@ -33,8 +33,9 @@ app = FastAPI()
 origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app",
            "https://hammerhead-app-2-du6ba.ondigitalocean.app:443",]
 
+app.add_middleware(LoggerMiddleware)
+
 app.add_middleware(
-    LoggerMiddleware,
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
