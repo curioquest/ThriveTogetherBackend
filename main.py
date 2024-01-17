@@ -32,7 +32,8 @@ app = FastAPI()
 
 origins = ["https://hammerhead-app-2-du6ba.ondigitalocean.app",
            "https://hammerhead-app-2-du6ba.ondigitalocean.app:443",
-           "https://hammerhead-app-2-du6ba.ondigitalocean.app/",]
+           "https://hammerhead-app-2-du6ba.ondigitalocean.app/",
+           "http://localhost:3000",]
 
 app.add_middleware(LoggerMiddleware)
 
